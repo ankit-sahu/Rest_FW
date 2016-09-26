@@ -13,6 +13,7 @@ class Blacklist(BaseTest):
 		self.assertEquals(response.get_status_code(),Codes.success)
 		self.assertEquals(response.get_response_header_keys(),Headers.blacklist_malware_get)
 		self.assertBody(response.get_response_body())
+		self.assertBody(response.get_response_body())
 
 	def test_blacklist_malware_with_head_method(self):
 		Blacklist.logger.info("Satrting execution for HEAD header test")
