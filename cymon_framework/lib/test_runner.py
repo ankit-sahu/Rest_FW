@@ -36,6 +36,16 @@ class TestRunner(object):
 		runner.run(test_suite)
 		logger.info("Exceution completed : Chek reports and log at %s"%report_path)
 		
+	def remove_pyc_files(self):
+	
+		for root,dirs,files in os.walk(fw_root):
+			for file in files:
+				if file.endswith("pyc"):
+					complete_path = root + "\\" + file
+					os.remove(complete_path)
+						
+		
 if __name__ == '__main__':
 	run = TestRunner()
 	run.run_test()
+	run.remove_pyc_files()
