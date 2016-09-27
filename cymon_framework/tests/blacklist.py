@@ -16,8 +16,8 @@ class Blacklist(BaseTest):
 		self.assertBody(response.get_response_body())
 		self.assertBody(response.get_response_body())
 
-	def test_blacklist_malware_with_head_method(self):
+	def test_blacklist_malware_with_head_method():
 		Blacklist.logger.info("Satrting execution for HEAD header test")
 		response = Method("HEAD").send_request(url=URL.blacklist_malware)
-		self.assertEquals(response.get_status_code(),2003)
+		self.assertEquals(response.get_status_code(),Codes.success)
 		self.assertEquals(response.get_response_header_keys(),Headers.blacklist_malware_head)
